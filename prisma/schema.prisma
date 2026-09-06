@@ -1,0 +1,235 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+// === CMS Models ===
+
+model User {
+  id            String   @id @default(cuid())
+  email         String   @unique
+  name          String?
+  password      String
+  role          Role     @default(EDITOR)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+enum Role {
+  ADMIN
+  EDITOR
+}
+
+model News {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  title       String
+  excerpt     String?
+  content     String
+  image       String?
+  publishedAt DateTime @default(now())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Event {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  title       String
+  excerpt     String?
+  content     String
+  image       String?
+  publishedAt DateTime @default(now())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Report {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  title       String
+  excerpt     String?
+  content     String
+  image       String?
+  fileUrl     String?
+  publishedAt DateTime @default(now())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Page {
+  id        String   @id @default(cuid())
+  slug      String   @unique
+  title     String
+  content   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Tariff {
+  id        String   @id @default(cuid())
+  title     String
+  price     String
+  unit      String
+  category  String   // water, sewage
+  validFrom DateTime
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Document {
+  id        String   @id @default(cuid())
+  title     String
+  fileUrl   String
+  category  String
+  createdAt DateTime @default(now())
+}
+
+model GalleryItem {
+  id        String   @id @default(cuid())
+  title     String?
+  imageUrl  String
+  createdAt DateTime @default(now())
+}
+
+model HeroSlide {
+  id        String   @id @default(cuid())
+  title     String
+  imageUrl  String
+  link      String?
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+}
+
+model QualitySurvey {
+  id           String   @id @default(cuid())
+  satisfaction String?
+  taste        String?
+  tasteOther   String?
+  smell        String?
+  smellOther   String?
+  turbidity    String?
+  pressure     String?
+  pressureOther String?
+  remarks      String?
+  street       String?
+  building     String?
+  apartment    String?
+  lastName     String?
+  firstName    String?
+  middleName   String?
+  phone        String?
+  email        String?
+  createdAt    DateTime @default(now())
+}
+
+model MeterReading {
+  id        String   @id @default(cuid())
+  account   String
+  prev      Int
+  curr      Int
+  diff      Int
+  period    String?  // YYYY-MM наступного місяця (28-5 вікно)
+  fio       String?  // ПІБ абонента (дублюється з Subscriber для історії)
+  address   String?  // Адреса
+  phone     String?
+  createdAt DateTime @default(now())
+}
+
+model Subscriber {
+  id         String   @id @default(cuid())
+  account    String   @unique
+  lastName   String
+  firstName  String
+  middleName String?
+  fio        String   // Повний ПІБ
+  address    String?
+  phone      String?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+// === Site-wide editable content (100% linkage) ===
+
+model SiteSettings {
+  id              String   @id @default("main")
+  emergency       String   @default("30-11-11")
+  general         String   @default("30-11-15")
+  callCenter      String   @default("0-800-604-513")
+  address         String   @default("09100, Київська обл., м. Біла Церква, вул. Сухоярська, 14")
+  director        String   @default("Тетяна Бойко")
+  email           String   @default("office@bcvoda.com.ua")
+  youtube         String?  @default("https://www.youtube.com/channel/UCo3WeZ38RIaiKF77XR8F88w/feed")
+  facebook        String?  @default("https://www.facebook.com/bilotserkivoda")
+  cabinetPersonal String?  @default("http://my.bcvoda.com.ua/")
+  cabinetLegal    String?  @default("http://cabinet.bcvoda.com.ua")
+  cabinetMap      String?  @default("http://bcvoda.com.ua/komertsiyniy-oblik-vodi")
+  updatedAt       DateTime @updatedAt
+}
+
+model StatusChip {
+  id        String   @id @default(cuid())
+  label     String
+  bg        String   @default("#E8DEF8")
+  title     String
+  body      String
+  href      String?
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Outage {
+  id        String   @id @default(cuid())
+  title     String
+  address   String
+  district  String
+  status    String   // active | planned | done
+  time      String
+  x         Float
+  y         Float
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model WaterQuality {
+  id          String   @id @default("current")
+  pH          Float    @default(7.3)
+  chlorine    Float    @default(0.28)
+  hardness    Float    @default(2.1)
+  turbidity   Float    @default(0.12)
+  pressure    Float    @default(3.8)
+  reportMonth String?  @default("Серпень 2026")
+  updatedAt   DateTime @updatedAt
+}
+
+model WaterQualityHistory {
+  id        String   @id @default(cuid())
+  month     String
+  label     String
+  pH        Float
+  turbidity Float
+  chlorine  Float
+  hardness  Float
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+}
+
+// Посилання на PDF-звіти — автоскрипт quality-daily скачує файли в public/reports/quality
+// і роздає локальні посилання; sourceUrl — оригінал на bcvoda.com.ua (фолбек).
+// category: pitna (питна вода) | kos (стічні води, КОС) | richka (р. Рось)
+model QualityReport {
+  id        String   @id @default(cuid())
+  category  String
+  title     String
+  url       String
+  sourceUrl String   @unique
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

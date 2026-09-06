@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+/* Apple SF Pro — фірмовий шрифт Apple для всього сайта (системний, без CDN — працює нативно на macOS/iOS) */
+:root {
+  --background: #FEF7FF;
+  --foreground: #1C1B1F;
+  --primary: #0B57D0;
+  --primary-foreground: #FFFFFF;
+  --secondary: #E8DEF8;
+  --muted: #F3EDF7;
+  --border: #CAC4D0;
+  --card: #FFFBFE;
+  --font-apple: "SF Pro Display", "SF Pro Text", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-card: var(--card);
+  --font-sans: var(--font-apple);
+  --font-mono: "SF Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+* { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; text-rendering: optimizeLegibility; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+
+html, body, h1, h2, h3, h4, h5, h6, p, a, span, button, input, textarea, div {
+  font-family: "SF Pro Display", "SF Pro Text", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+}
+
+html { font-family: "SF Pro Display", "SF Pro Text", -apple-system, BlinkMacSystemFont, sans-serif !important; }
+
+body {
+  background: #FEF7FF;
+  color: #1C1B1F;
+  font-family: "SF Pro Display", "SF Pro Text", -apple-system, BlinkMacSystemFont, sans-serif !important;
+  letter-spacing: -0.011em;
+  font-feature-settings: "ss01" 1, "ss02" 1;
+}
+
+/* Material 3 Expressive — keep Android 17 but with SF Pro */
+.m3-card {
+  background: #FFFBFE;
+  border-radius: 28px;
+  border: 1px solid #E7E0EC;
+  box-shadow: 0 1px 3px #00000014;
+}
+.m3-card-elevated {
+  background: #FFFBFE;
+  border-radius: 28px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08), 0 1px 3px rgba(0,0,0,0.08);
+}
+.m3-fab {
+  background: #0B57D0;
+  color: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(11,87,208,0.4);
+  font-weight: 600;
+  font-family: var(--font-apple);
+}
+.m3-fab:hover { background: #0842A0; }
+.m3-chip {
+  background: #E8DEF8;
+  color: #1D192B;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  font-family: var(--font-apple);
+}
+.m3-nav-bar {
+  background: #F3EDF7;
+  border-top: 1px solid #CAC4D0;
+}
+
+/* Android waves — Material motion */
+@keyframes wave-drift { 0%{transform:translateX(0)} 50%{transform:translateX(-16px)} 100%{transform:translateX(0)} }
+@keyframes bubble-rise {
+  0% { transform: translateY(100vh) scale(0.6); opacity: 0; }
+  10% { opacity: 0.06; }
+  90% { opacity: 0.06; }
+  100% { transform: translateY(-20vh) scale(1); opacity: 0; }
+}
+@keyframes droplet-ripple { 0%{transform:scale(0);opacity:0.3} 100%{transform:scale(2.5);opacity:0} }
+.wave-1 { animation: wave-drift 24s ease-in-out infinite; }
+.bubble { animation: bubble-rise linear infinite; }
+.ripple { animation: droplet-ripple 600ms ease-out forwards; }
+
+/* Контент з візуального редактора (адмінка) — власні стилі замість typography-плагіна */
+.rich-content { font-size: 14px; line-height: 1.7; color: #49454F; overflow-wrap: anywhere; }
+.rich-content p { margin: 0 0 12px; }
+.rich-content b, .rich-content strong { font-weight: 700; color: #1D1D1F; }
+.rich-content i, .rich-content em { font-style: italic; }
+.rich-content u { text-decoration: underline; }
+.rich-content s, .rich-content strike { text-decoration: line-through; }
+.rich-content h2 { font-size: 19px; font-weight: 700; color: #1C1B1F; margin: 20px 0 8px; line-height: 1.35; }
+.rich-content h3 { font-size: 16px; font-weight: 700; color: #1C1B1F; margin: 16px 0 6px; line-height: 1.4; }
+.rich-content ul { list-style: disc; padding-left: 24px; margin: 8px 0 12px; }
+.rich-content ol { list-style: decimal; padding-left: 24px; margin: 8px 0 12px; }
+.rich-content li { margin: 4px 0; padding-left: 2px; }
+.rich-content li::marker { color: #0B57D0; font-weight: 700; }
+.rich-content a { color: #0B57D0; text-decoration: underline; }
+.rich-content blockquote { border-left: 4px solid #0B57D0; padding-left: 14px; margin: 12px 0; color: #1D1D1F; font-weight: 500; }
+.rich-content img { display: block; width: 100%; max-width: 250px; height: auto; border-radius: 20px; border: 1px solid #e7e0ec; box-shadow: 0 1px 3px #00000014; margin: 16px auto; }

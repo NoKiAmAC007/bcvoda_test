@@ -1,0 +1,66 @@
+{
+  "city": "Біла Церква",
+  "checkedAt": "2026-09-05T18:49:01.186Z",
+  "sources": {
+    "quality": "https://bcvoda.com.ua/yakist-vodi-pitnoyi-vodi"
+  },
+  "data": {
+    "quality": {
+      "pH": 7.3,
+      "chlorine": 0.28,
+      "hardness": 2.1,
+      "turbidity": 0.12,
+      "source": "https://bcvoda.com.ua/yakist-vodi-pitnoyi-vodi",
+      "reportMonth": "Серпень 2026",
+      "pdfUrl": "/reports/quality/pitna/Zvedeni-dani-serpen-RCHV.pdf",
+      "allPdfs": [
+        {
+          "url": "/reports/quality/pitna/Zvedeni-dani-serpen-RCHV.pdf",
+          "title": "Серпень 2026"
+        },
+        {
+          "url": "/reports/quality/pitna/Zvit-misyats-RCHV.pdf",
+          "title": "Липень 2026"
+        },
+        {
+          "url": "/reports/quality/pitna/Zvedeni-misyats-RCHV.pdf",
+          "title": "Червень 2026"
+        },
+        {
+          "url": "/reports/quality/pitna/Zvedeni-RCHV-01.05-31.05.26.pdf",
+          "title": "Травень 2026"
+        },
+        {
+          "url": "/reports/quality/pitna/Zvedeni-dani-RCHV-mis..pdf",
+          "title": "Квітень 2026"
+        }
+      ],
+      "sewage": {
+        "reportMonth": "Серпень 2026",
+        "pdfUrl": "/reports/quality/kos/Zvit-po-KOS-za-serpen-2026.pdf",
+        "pdfSource": "https://bcvoda.com.ua/wp-content/uploads/2026/09/Zvit-po-KOS-za-serpen-2026.pdf",
+        "source": "https://bcvoda.com.ua/yakist-stichnih-vod"
+      },
+      "river": {
+        "reportMonth": "Серпень 2026",
+        "pdfUrl": "/reports/quality/richka/Zvedeni-dani-serpen-richka.pdf",
+        "pdfSource": "https://bcvoda.com.ua/wp-content/uploads/2026/09/Zvedeni-dani-serpen-richka.pdf",
+        "source": "https://bcvoda.com.ua/yakist-vodi"
+      },
+      "lastCheck": "2026-09-05T18:49:01.186Z",
+      "nextCheck": "2026-09-06T18:49:01.186Z",
+      "pdfSource": "https://bcvoda.com.ua/wp-content/uploads/2026/09/Zvedeni-dani-serpen-RCHV.pdf"
+    },
+    "tariff": {
+      "water": 30.75,
+      "sewage": 48.5,
+      "validFrom": "2026-09-01",
+      "source": "https://bcvoda.com.ua/tarifi",
+      "checked": "актуально на 01.09.2026 — рішення №616"
+    },
+    "reports": {
+      "latest": "серпень 2026",
+      "source": "https://bcvoda.com.ua/zviti"
+    }
+  }
+}

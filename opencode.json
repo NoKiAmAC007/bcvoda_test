@@ -1,0 +1,65 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "agent": {
+    "apple": {
+      "description": "Apple Human Interface Guidelines дизайнер",
+      "mode": "subagent",
+      "model": "opencode/muse-spark-1.2-contributor-free"
+    },
+    "material": {
+      "description": "Material 3 дизайнер — Google M3, dynamic color, rounded, elevation",
+      "mode": "subagent",
+      "model": "opencode/muse-spark-1.2-contributor-free"
+    },
+    "brutalist": {
+      "description": "Brutalist дизайнер — чорні бордери, моноширинний, жорсткий контраст",
+      "mode": "subagent",
+      "model": "opencode/muse-spark-1.2-contributor-free"
+    },
+    "glass": {
+      "description": "Glassmorphism агент — скло, blur 40px, градієнти, неон",
+      "mode": "subagent",
+      "model": "opencode/muse-spark-1.2-contributor-free"
+    },
+    "cyber": {
+      "description": "Cyberpunk агент — неон, темний, рожево-блакитний",
+      "mode": "subagent",
+      "model": "opencode/muse-spark-1.2-contributor-free"
+    },
+    "minimal": {
+      "description": "Minimal агент — швейцарський стиль, сітка, повітря",
+      "mode": "subagent",
+      "model": "opencode/muse-spark-1.2-contributor-free"
+    },
+    "water": {
+      "description": "Water-агент — рідина, хвилі, бульбашки, глибина",
+      "mode": "subagent",
+      "model": "opencode/muse-spark-1.2-contributor-free"
+    },
+    "analytics": {
+      "description": "Analytics агент — дашборди, графіки, KPI",
+      "mode": "subagent",
+      "model": "opencode/muse-spark-1.2-contributor-free"
+    },
+    "google-material": {
+      "description": "Google Material 3 Expressive дизайнер — Android 17, dynamic color, shape, motion",
+      "mode": "subagent",
+      "model": "opencode/muse-spark-1.2-contributor-free"
+    },
+    "google-android": {
+      "description": "Google Android 17 системний дизайнер — Top App Bar, Navigation Bar, FAB",
+      "mode": "subagent",
+      "model": "opencode/muse-spark-1.2-contributor-free"
+    },
+    "google-gemini": {
+      "description": "Google Gemini агент — AI, генерація, допомога",
+      "mode": "subagent",
+      "model": "opencode/muse-spark-1.2-contributor-free"
+    },
+    "google-play": {
+      "description": "Google Play агент — публікація, реліз, store listing",
+      "mode": "subagent",
+      "model": "opencode/muse-spark-1.2-contributor-free"
+    }
+  }
+}
